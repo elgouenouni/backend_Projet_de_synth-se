@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Prestataire;
 
 class PrestataireController extends Controller
 {
@@ -13,7 +14,8 @@ class PrestataireController extends Controller
      */
     public function index()
     {
-        //
+        $presta=Prestataire::all();
+        return response()->json($presta);
     }
 
     /**

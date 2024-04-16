@@ -36,7 +36,25 @@ class FondateurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'cin' => 'required',
+            'nom' => 'required',
+            'prenom' => 'required',
+            'tele' => 'required',
+            'login' => 'required',
+            'password' => 'required',
+        ]);
+
+        $fondat = new  Fondateur();
+        $fondat ->cin = $request ->cin;
+        $fondat ->nom = $request ->nom;
+        $fondat ->prenom = $request ->prenom;
+        $fondat ->tele = $request ->tele;
+        $fondat ->login = $request ->login;
+        $fondat ->password = $request ->password;
+        $fondat->save();
+
+        return response()->json($fondat, 201);
     }
 
     /**
@@ -81,6 +99,9 @@ class FondateurController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fonda = Fondateur::findOrFail($id);
+        $fonda->delete();
+        return response()->json(['message' => 'Fondateur supprimé avec succès'], 200);
+
     }
 }

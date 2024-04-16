@@ -7,6 +7,8 @@ use App\Models\Client;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FondateurController;
+use App\Http\Controllers\AdmineController;
+use App\Http\Controllers\PrestataireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +34,10 @@ Route::Get('/categories',function(){
 //     $categories= Client::get();
 //     return response()->JSON($categories);
 // });
+
 Route::Resource("/client",ClientController::class);
 Route::Resource("/fondateur",FondateurController::class);
-
+Route::Resource("/admin",AdmineController::class);
+Route::Resource("/prestataire",PrestataireController::class);
 // Route::post("/categories" ,[CategorieController::class,"ajouter"]);
 // Route::resource('/categories', 'CategorieController');

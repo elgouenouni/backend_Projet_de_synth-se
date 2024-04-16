@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admine;
 
 class AdmineController extends Controller
 {
@@ -13,7 +14,8 @@ class AdmineController extends Controller
      */
     public function index()
     {
-        //
+        $admin=Admine::all();
+        return response()->json($admin);
     }
 
     /**
