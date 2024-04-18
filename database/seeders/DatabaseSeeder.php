@@ -22,12 +22,11 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this -> call(
                 [ 
-                    // etape 1 :  lencer juste admineSeeder et clientSeeder et  serviceSeeder  et commenter lautre pour eviter une error 
-                    //etape 2 ;   ouvrer tous les commenteire et commter ce que vous avez lancer avant
+                 
                     Categorie::class,
-                    admineSeeder::class, // etape 1
-                    clientSeeder::class, // etape 1
-                    devisSeeder::class, // etape3 c'est le derniere fichier que tu doit lencer  et commenter les autre fichier 
+                    admineSeeder::class,
+                    clientSeeder::class,
+                    serviceSeeder::class, 
                     fondateurSeeder::class,
                     prestataireSeeder::class,
                     prestataireServiceSeeder::class,
@@ -35,7 +34,7 @@ class DatabaseSeeder extends Seeder
                     reservationSeeder::class,
                     serviceProduitSeeder::class,
                     serviceReservationSeeder::class,
-                    serviceSeeder::class //atape1
+                    devisSeeder::class 
                 ]
                 );
     }
