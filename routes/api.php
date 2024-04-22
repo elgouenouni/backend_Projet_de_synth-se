@@ -9,6 +9,8 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FondateurController;
 use App\Http\Controllers\AdmineController;
 use App\Http\Controllers\PrestataireController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/PerstataireService/{id}',[ServiceController::class , 'show']);
+
 
 Route::Get('/categories',function(){
     $categories= Categorie::get();
@@ -39,5 +43,11 @@ Route::Resource("/client",ClientController::class);
 Route::Resource("/fondateur",FondateurController::class);
 Route::Resource("/admin",AdmineController::class);
 Route::Resource("/prestataire",PrestataireController::class);
+Route::Resource("/reservatins",ReservationController::class);
+Route::Resource("/services",ServiceController::class);
+
+
+
+
 // Route::post("/categories" ,[CategorieController::class,"ajouter"]);
 // Route::resource('/categories', 'CategorieController');

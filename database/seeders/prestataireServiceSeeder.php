@@ -17,40 +17,17 @@ class prestataireServiceSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('prestataireservice')->insert([
-            [
-                "date_debut"=>"2024-5-07",
-                "service_termine"=>"true" ,
-                "id_prestataire"=>Prestataire::all()->random()->id,
-                "service_id"=> Service::all()->random()->id,
-                'created_at'=>now(),
-                'updated_at'=>now()
-            ],
-            [
-                "date_debut"=>"2024-9-07",
-                "service_termine"=>"true" ,
-                "id_prestataire"=>Prestataire::all()->random()->id,
-                "service_id"=>Service::all()->random()->id,
-                'created_at'=>now(),
-                'updated_at'=>now()
-            ],
-            [
-                "date_debut"=>"2024-10-07",
-                "service_termine"=>"false" ,
-                "id_prestataire"=>Prestataire::all()->random()->id,
-                "service_id"=>Service::all()->random()->id,
-                'created_at'=>now(),
-                'updated_at'=>now()
-            ],
-            [
-                "date_debut"=>"2024-9-07",
-                "service_termine"=>"false" ,
-                "id_prestataire"=>Prestataire::all()->random()->id,
-                "service_id"=> Service::all()->random()->id,
-                'created_at'=>now(),
-                'updated_at'=>now()
-            ]
-            ]
-        );
-    }
+        for ($i=0 ; $i< 40 ; $i++){
+            DB::table('prestataire_service')->insert([
+                [
+                    "date_debut"=>"2024-5-07",
+                    "service_termine"=>fake()->randomElement(['true','false']) ,
+                    "prestataire_id"=>Prestataire::all()->random()->id,
+                    "service_id"=> Service::all()->random()->id,
+                    'created_at'=>now(),
+                    'updated_at'=>now()
+                ]
+            ]);
+        }
+    } 
 }

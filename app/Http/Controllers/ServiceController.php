@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Service;
 
 class ServiceController extends Controller
 {
@@ -13,7 +14,13 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services=Service::all();
+        // $services=Service::find(1);
+        // $prestataires=$services ->prestataires;
+        // $prestataires= Service::with('prestataires')->get();
+
+        return response()->json($services);
+        // return response()->json($services);
     }
 
     /**
@@ -45,7 +52,9 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $services=Service::find($id);
+        $prestataires=$services ->prestataires;
+        return response()->json($prestataires);
     }
 
     /**

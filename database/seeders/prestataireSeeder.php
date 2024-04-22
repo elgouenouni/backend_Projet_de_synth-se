@@ -17,7 +17,7 @@ class prestataireSeeder extends Seeder
     public function run()
     {
         $numbers='0123456789';
-        for($i=0 ; $i<10 ;$i++){
+        for($i=0 ; $i<40 ;$i++){
             DB::table('prestataires')->insert(
                 
                 [

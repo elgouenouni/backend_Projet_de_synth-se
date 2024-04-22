@@ -81,6 +81,8 @@ class PrestataireController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $prestat = Prestataire::findOrFail($id);
+        $prestat->delete();
+        return response()->json(['message' => 'prestataire supprimé avec succès'], 200);
     }
 }

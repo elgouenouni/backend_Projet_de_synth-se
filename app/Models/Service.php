@@ -10,4 +10,8 @@ class Service extends Model
     use HasFactory;
     public $timestamps = false;
     protected $fillable = ['nom_service','descriptionS'];
+
+    public function prestataires(){
+        return $this->belongsToMany(Prestataire::class)->withPivot('date_debut','service_termine');
+    }
 }
